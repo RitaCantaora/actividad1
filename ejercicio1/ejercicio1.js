@@ -1,6 +1,6 @@
-// Función para verificar si una cadena se puede convertir en un número entero
+// Función para verificar si una cadena puede convertirse en un número entero
 function esEntero(c) {
-    return !isNaN(c) && parseInt(c) == c;
+    return Number.isInteger((c));
   }
   
   // Función para verificar si un número es positivo
@@ -8,7 +8,7 @@ function esEntero(c) {
     return numero > 0;
   }
   
-  // Función para calcular el sumatorio de un número
+  // Función para calcular el sumatorio de un número entero
   function sumatorio(numero) {
     let resultado = 0;
     for (let i = 0; i <= numero; i++) {
@@ -19,24 +19,26 @@ function esEntero(c) {
   
   // Proceso principal
   let numero;
-  let esValido = false;
+  let valido = false;
   
-  while (!esValido) {
-    let entrada = prompt("Por favor, introduce un número entero positivo:");
+  while (!valido) {
+    let entrada = prompt("Por favor, ingresa un número entero positivo:");
   
     if (esEntero(entrada)) {
       numero = parseInt(entrada);
-  
       if (esPositivo(numero)) {
-        esValido = true;
+        valido = true;
       } else {
-        console.log("El número debe ser positivo. Inténtalo de nuevo.");
+        console.log("El número no es positivo. Inténtalo de nuevo.");
       }
     } else {
-      console.log("No has introducido un número entero. Inténtalo de nuevo.");
+      console.log("No has ingresado un número entero. Inténtalo de nuevo.");
     }
   }
   
   const resultado = sumatorio(numero);
-  console.log(`El sumatorio de ${numero} es ${resultado}`);
+  console.log("El sumatorio de " + numero + " es " + resultado);
+  
+  
+  
   
